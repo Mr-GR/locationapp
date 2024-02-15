@@ -27,6 +27,8 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.SaveDateListener {
 
+    private Contact currentContact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         initTextChangedEvents();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            initContact(extras.getInt("contactid"));
+            initContact(extras.getInt("contactID"));
         } else {
             currentContact = new Contact();
         }
@@ -63,6 +65,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         ibList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ContactMapActivity.class);
+                if (currentContact.getContactID() == -1) {
+                    Toast.makeText(getBaseContext(), "Contact must be saved before it can be mapped",
+                            Toast.LENGTH_LONG).show();
+                }
+                else {
+                    intent.putExtra("contactID", currentContact.getContactID());
+                }
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -300,16 +309,18 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
             @Override
             public void onClick(View view) {
-                hideKeyboard();
                 boolean wasSuccessful;
+                hideKeyboard();
                 ContactDataSource ds = new ContactDataSource(MainActivity.this);
                 try {
                     ds.open();
 
                     if (currentContact.getContactID() == -1) {
                         wasSuccessful = ds.insertContact(currentContact);
-                        int newId = ds.getLastContactID();
-                        currentContact.setContactID(newId);
+                        if (wasSuccessful) {
+                            int newId = ds.getLastContactID();
+                            currentContact.setContactID(newId);}
+
                     } else {
                         wasSuccessful = ds.updateContact(currentContact);
                     }
@@ -354,8 +365,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         EditText editEmail = findViewById(R.id.editEMail);
         imm.hideSoftInputFromWindow(editEmail.getWindowToken(), 0);
     }
-
-    private Contact currentContact;
 
     private void initContact(int id) {
         ContactDataSource ds = new ContactDataSource(MainActivity.this);

@@ -26,18 +26,14 @@ public class ContactListActivity extends AppCompatActivity {
         public void onClick(View view) {
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
             int position = viewHolder.getAdapterPosition();
-            // RecyclerView recyclerView = findViewById(R.id.rvContacts);
-            //adapter = (ContactAdapter) viewHolder.getAdapterPosition();
-
-            //Contact clickedContact = adapter.getItem(position);
-
-            //int contactId = clickedContact.getContactID();
-
+            int contactid = contacts.get(position).getContactID();
             Intent intent = new Intent(ContactListActivity.this, MainActivity.class);
-            intent.putExtra("contactID", position);
+            intent.putExtra("contactID", contactid);
             startActivity(intent);
         }
     };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +42,6 @@ public class ContactListActivity extends AppCompatActivity {
         initListButton();
         initListMapButton();
         initSettingsButton();
-        // retrieveAndDisplayContacts();
         initAddContactButton();
         initDeleteSwitch();
     }
@@ -113,29 +108,6 @@ public class ContactListActivity extends AppCompatActivity {
             }
         });
     }
-//
-//    private void retrieveAndDisplayContacts() {
-//        String sortBy = getSharedPreferences("MyContactListPreferences",
-//                Context.MODE_PRIVATE).getString("sortfield", "contactname");
-//        String sortOrder = getSharedPreferences("MyContactListPreferences",
-//                Context.MODE_PRIVATE).getString("sortorder","ASC");
-//        ContactDataSource ds = new ContactDataSource(this);
-//        ArrayList<Contact> contacts;
-//
-//        try {
-//            ds.open();
-//            contacts = ds.getContacts(sortBy, sortOrder);
-//            ds.close();
-//            RecyclerView contactList = findViewById(R.id.rvContacts);
-//            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//            contactList.setLayoutManager(layoutManager);
-//            contactAdapter = new ContactAdapter(contacts, this);
-//            contactList.setAdapter(contactAdapter);
-//            contactAdapter.setOnItemClickListener(onItemClickListener);
-//        } catch (Exception e) {
-//            Toast.makeText(this, "Error retrieving contacts", Toast.LENGTH_LONG).show();
-//        }
-//    }
 
     private void initAddContactButton() {
         Button newContact = findViewById(R.id.buttonAddContact);

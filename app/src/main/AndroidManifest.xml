@@ -2,10 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <permission
+        android:name="com.example.locationapp.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.example.locationapp.permission.MAPS_RECEIVE"/>
+
+
 
 
     <application
@@ -39,7 +46,12 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCYkWyVoUrM2SYn_LLt9i2_x8ek21l3ysk" />
+            android:value="AIzaSyAmf5-qGG8-IQrhHBsYd6ES9V1nO0yTWfQ" />
+
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
     </application>
 
