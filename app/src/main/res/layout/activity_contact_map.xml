@@ -8,6 +8,7 @@
     android:background="@color/white"
     tools:context=".ContactMapActivity">
 
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -80,5 +81,15 @@
             android:layout_height="wrap_content"
             android:text="Satellite" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="WNW"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintStart_toStartOf="@+id/map"
+        app:layout_constraintTop_toTopOf="@+id/map" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
