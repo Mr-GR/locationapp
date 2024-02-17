@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -88,7 +89,7 @@
         app:layout_constraintBottom_toTopOf="@+id/navbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" >
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -115,7 +116,7 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textContact"/>
+                app:layout_constraintTop_toBottomOf="@+id/textContact" />
 
             <requestFocus />
 
@@ -141,8 +142,7 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textAddress"/>
-
+                app:layout_constraintTop_toBottomOf="@+id/textAddress" />
 
 
             <EditText
@@ -157,8 +157,7 @@
                 android:inputType="textCapWords"
                 android:nextFocusDown="@+id/editState"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editAddress"/>
-
+                app:layout_constraintTop_toBottomOf="@+id/editAddress" />
 
 
             <EditText
@@ -168,15 +167,13 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="8dp"
                 android:ems="2"
-                android:maxLength="2"
                 android:hint="State"
                 android:imeOptions="actionNext"
                 android:inputType="textCapCharacters"
+                android:maxLength="2"
                 android:nextFocusDown="@+id/editZipcode"
                 app:layout_constraintStart_toEndOf="@id/editCity"
-                app:layout_constraintTop_toBottomOf="@+id/editAddress"/>
-
-
+                app:layout_constraintTop_toBottomOf="@+id/editAddress" />
 
 
             <EditText
@@ -186,15 +183,13 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="8dp"
                 android:ems="5"
-                android:maxLength="5"
                 android:hint="ZipCode"
                 android:imeOptions="actionNext"
                 android:inputType="number"
+                android:maxLength="5"
                 android:nextFocusDown="@+id/editHome"
                 app:layout_constraintStart_toEndOf="@id/editState"
-                app:layout_constraintTop_toBottomOf="@+id/editAddress"/>
-
-
+                app:layout_constraintTop_toBottomOf="@+id/editAddress" />
 
 
             <TextView
@@ -218,9 +213,7 @@
                 android:maxLength="14"
                 android:nextFocusDown="@+id/editCell"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textHome"/>
-
-
+                app:layout_constraintTop_toBottomOf="@+id/textHome" />
 
 
             <TextView
@@ -245,7 +238,7 @@
                 android:maxLength="14"
                 android:nextFocusDown="@+id/editEMail"
                 app:layout_constraintStart_toStartOf="@+id/textCell"
-                app:layout_constraintTop_toBottomOf="@+id/textCell"/>
+                app:layout_constraintTop_toBottomOf="@+id/textCell" />
 
 
             <TextView
@@ -256,7 +249,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Email Address: "
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editHome"/>
+                app:layout_constraintTop_toBottomOf="@+id/editHome" />
 
             <EditText
                 android:id="@+id/editEMail"
@@ -279,7 +272,7 @@
                 android:layout_marginTop="24dp"
                 android:text="Birthday: "
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editEMail"/>
+                app:layout_constraintTop_toBottomOf="@+id/editEMail" />
 
             <TextView
                 android:id="@+id/textBirthday"
@@ -289,7 +282,7 @@
                 android:layout_marginTop="24dp"
                 android:text="01/01/1970"
                 app:layout_constraintStart_toEndOf="@+id/textBday"
-                app:layout_constraintTop_toBottomOf="@+id/editEMail"/>
+                app:layout_constraintTop_toBottomOf="@+id/editEMail" />
 
             <Button
                 android:id="@+id/btnBirthday"
@@ -298,7 +291,7 @@
                 android:layout_marginRight="60dp"
                 android:text="Change"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textBirthday"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

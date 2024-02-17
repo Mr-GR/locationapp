@@ -1,4 +1,5 @@
 package com.example.locationapp;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -411,11 +412,8 @@ public class ContactMapActivity extends AppCompatActivity implements
         }
 
 
+
     }
-
-
-
-
 
 //    @Override
 //    public void onPointerCaptureChanged(boolean hasCapture) {

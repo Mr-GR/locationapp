@@ -8,12 +8,17 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CalendarView;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 public class DatePickerDialog extends DialogFragment {
 
     Calendar selectedDate;
     public interface SaveDateListener {
+        void onRequestPermissionResult(int requestCode,
+                                       @NonNull String permissions[], @NonNull int[] grantResults);
+
         void didFinishDatePickerDialog(Calendar selectedTime);
     }
 
