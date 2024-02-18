@@ -105,6 +105,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageButton
+                android:id="@+id/imageContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/photoicon"
+                app:layout_constraintStart_toEndOf="@+id/editName"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/editName"
                 android:layout_width="wrap_content"
@@ -116,7 +126,8 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textContact" />
+                app:layout_constraintTop_toBottomOf="@+id/textContact"
+                app:layout_constraintEnd_toStartOf="@+id/imageContact"/>
 
             <requestFocus />
 
